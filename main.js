@@ -34,7 +34,7 @@ app.use('/purchase', purchaseRouter);
 app.use('/menu', menuRouter);
 
 
-var port = process.env.PORT;
+var port = process.env.PORT || 3000;
 app.listen(port, ()=>{
     console.log(`connected to PORT: ${port}`);
 })
