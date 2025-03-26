@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 
@@ -25,6 +26,9 @@ const menuRouter = require('./router/menuRouter');
 // body-Parser Setting
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+// cors-setting
+app.use(cors());
 
 // Router Setting
 app.use('/item', itemRouter);
