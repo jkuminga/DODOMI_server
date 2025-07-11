@@ -79,11 +79,11 @@ router.post('/uploadimg', upload.single('file'), async (req, res)=>{
     }
 })
 
-router.get('/getpw', (req, res)=>{
+router.get('/password', (req, res)=>{
     manage.get_password(req, res);
 })
 
-router.post('/changepw', (req, res)=>{
+router.patch('/password', (req, res)=>{
     manage.change_password(req, res);
 })
 

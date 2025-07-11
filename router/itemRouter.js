@@ -14,7 +14,7 @@ router.get('/detail/:itemId', (req, res)=>{
     item.detail(req, res);
 })
 
-router.post('/newitem', (req, res)=>{
+router.post('/new', (req, res)=>{
     item.create_new_item(req, res);
 })
 
@@ -22,7 +22,7 @@ router.post('/update/:itemId', (req, res)=>{
     item.update_item(req, res)
 })
 
-router.post('/delete/:itemId', (req, res)=>{
+router.delete('/:itemId', (req, res)=>{
     item.delete_item(req, res);
 })
 

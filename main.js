@@ -15,6 +15,13 @@ cloudinary.config({
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
+// body-Parser Setting
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+// cors-setting
+app.use(cors());
+
 // import Routers
 
 const noticeRouter = require('./router/noticeRouter');
@@ -23,12 +30,6 @@ const manageRouter = require('./router/manageRouter');
 const purchaseRouter = require('./router/purchaseRouter');
 const menuRouter = require('./router/menuRouter');
 
-// body-Parser Setting
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-
-// cors-setting
-app.use(cors());
 
 // Router Setting
 app.use('/item', itemRouter);
@@ -36,6 +37,19 @@ app.use('/notice', noticeRouter);
 app.use('/manage', manageRouter);
 app.use('/purchase', purchaseRouter);
 app.use('/menu', menuRouter);
+
+
+// main logic
+const main = require('./lib/main');
+const { populate } = require('dotenv');
+
+app.post('/login', (req, res)=>{
+    main.login(req, res);
+})
+
+app.get('/verify', (req, res)=>{
+    main.verifyToken(req, res);
+})
 
 
 var port = process.env.PORT || 3000;
