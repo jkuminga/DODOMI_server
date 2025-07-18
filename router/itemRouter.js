@@ -26,8 +26,12 @@ router.delete('/:itemId', (req, res)=>{
     item.delete_item(req, res);
 })
 
-router.post('/search', upload.none(), (req, res)=>{
+router.get('/search/:keywords', upload.none(), (req, res)=>{
     item.search_items(req, res);
+})
+
+router.get('/itemdetail/:itemId',(req, res)=>{
+    item.getItemList(req, res);
 })
 
 module.exports = router;
