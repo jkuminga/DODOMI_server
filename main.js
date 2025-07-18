@@ -27,7 +27,6 @@ app.use(cors());
 const noticeRouter = require('./router/noticeRouter');
 const itemRouter = require('./router/itemRouter');
 const manageRouter = require('./router/manageRouter');
-const purchaseRouter = require('./router/purchaseRouter');
 const menuRouter = require('./router/menuRouter');
 
 
@@ -35,7 +34,6 @@ const menuRouter = require('./router/menuRouter');
 app.use('/item', itemRouter);
 app.use('/notice', noticeRouter);
 app.use('/manage', manageRouter);
-app.use('/purchase', purchaseRouter);
 app.use('/menu', menuRouter);
 
 
